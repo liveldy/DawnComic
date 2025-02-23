@@ -81,25 +81,25 @@ namespace DawnComic
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UIMessageBox.Show("DawnComic ÆÆÏş±ÚÖ½ V1.0.2.0 20250220\n" +
-                "Copyright 2025 All Rights Reserved. °§¸èéäÄê °æÈ¨ËùÓĞ\n" +
-                "¹ÙÍø: https://agsn.site/\n" +
-                "×÷ÕßQQ£º2690034441\n" +
-                "¸üĞÂÄÚÈİ£º\n" +
-                "1.ĞŞÕıÁËÒ»Ğ©ÎÊÌâ\n" +
-                "2.¿ªÊ¼Ö§³ÖSTA·şÎñ", "¹ØÓÚ");
+            UIMessageBox.Show("DawnComic ç ´æ™“å£çº¸ V1.0.3.0 20250223\n" +
+                "Copyright 2025 All Rights Reserved. å“€æ­Œæ®‡å¹´ ç‰ˆæƒæ‰€æœ‰\n" +
+                "å®˜ç½‘: https://agsn.site/\n" +
+                "ä½œè€…QQï¼š2690034441\n" +
+                "æ›´æ–°å†…å®¹ï¼š\n" +
+                "ä¿®å¤äº†STAæœåŠ¡æŸ¥è¯¢é—®é¢˜", "å…³äº");
         }
 
         private void STAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string dawnserverpath = Path.Combine(Directory.GetParent(Directory.GetParent(Application.StartupPath).FullName).FullName, "DawnServer.exe");
+            string dawnserverpath = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Application.StartupPath).FullName).FullName).FullName, "DawnServer.exe");
             if (File.Exists(dawnserverpath))
             {
-
+                IniFile Info = new IniFile(Path.Combine(assetsPath, "data.ini"));
+                Process.Start(dawnserverpath, $"-sta DawnComic {Info.ReadString("main", "url", "")}");
             }
             else
             {
-                UIMessageBox.ShowInfo("µ±Ç°Ó¦ÓÃÃ»ÓĞSTA·şÎñ£¬ÈçĞè»ñÈ¡£¬ÇëÇ°Íùagsn.siteÏÂÔØÆÆÏşÓ¦ÓÃÖĞĞÄ");
+                UIMessageBox.ShowInfo("å½“å‰åº”ç”¨æ²¡æœ‰STAæœåŠ¡ï¼Œå¦‚éœ€è·å–ï¼Œè¯·å‰å¾€agsn.siteä¸‹è½½ç ´æ™“åº”ç”¨ä¸­å¿ƒ");
             }
         }
 
